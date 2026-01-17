@@ -1,0 +1,41 @@
+/* Global styles for modern 3D theme and animations */
+:root{
+  --bg-1: #0f1724;
+  --accent: #7c3aed;
+  --accent-2: #06b6d4;
+  --glass: rgba(255,255,255,0.06);
+  --glass-2: rgba(255,255,255,0.04);
+}
+html,body,#root{height:100%;}
+body{background: linear-gradient(180deg, rgba(13,17,23,1) 0%, rgba(5,7,12,1) 100%); color:#e6eef8;}
+
+/* Subtle floating animation */
+@keyframes floatY{ from { transform: translateY(0px);} 50% { transform: translateY(-8px);} to { transform: translateY(0px);} }
+@keyframes rotateSlow{ from { transform: rotateY(0deg);} to { transform: rotateY(360deg);} }
+
+/* Glass surfaces */
+.glass{background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02)); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.06);}
+
+/* 3D perspective helpers */
+.perspective{perspective: 1200px;}
+.preserve-3d{transform-style: preserve-3d;}
+
+/* Floating hero container */
+.hero-3d-wrap{position:relative; width:100%; height:420px; display:flex; align-items:center; justify-content:center;}
+.hero-foreground{position:relative; z-index:20;}
+.hero-canvas{position:absolute; inset:0; z-index:10;}
+
+/* Tilted card fallback */
+.tilt-card{transition: transform 300ms cubic-bezier(.2,.9,.2,1), box-shadow 300ms; will-change: transform;}
+.tilt-card:hover{transform: translateY(-8px) rotateX(4deg) rotateY(-6deg); box-shadow: 0 20px 50px rgba(0,0,0,0.6);}
+
+/* Particle canvas fallback sizing */
+#particles-js{position:absolute; inset:0; z-index:0;}
+
+/* Accessibility: reduce motion */
+@media (prefers-reduced-motion: reduce){
+  .hero-3d-wrap, .tilt-card{animation: none; transition: none;}
+  {
+  scroll-behavior: smooth;
+}
+}

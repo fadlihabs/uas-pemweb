@@ -1,0 +1,8 @@
+
+{
+  "name": "Smart Campus Assistant (SCA)",
+  "description": "A comprehensive productivity suite for university students featuring AI-driven study recommendations, course management, task tracking, and campus navigation.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
